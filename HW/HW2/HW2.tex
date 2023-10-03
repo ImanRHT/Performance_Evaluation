@@ -1,0 +1,132 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{
+	letterpaper,
+	left=20mm,
+	right=20mm,
+	top=25mm,
+	bottom=30mm,
+}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usepackage{pgfplots}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{subcaption}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{nccmath} %for fleqn
+\makeatletter
+\def\verbatim@font{\linespread{1}\normalfont\ttfamily}
+\makeatother
+\usepackage[breaklinks]{hyperref} 
+\hypersetup{
+	colorlinks   = true,
+	citecolor    = blue
+}
+\hypersetup{linkcolor=blue}
+\usepackage[T1]{fontenc}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\mathchardef\mhyphen="2D
+\newcommand\makeset{\mathop{make\mhyphen set}}
+\newcommand\findset{\mathop{find\mhyphen set}}
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}
+\usepackage{mdframed}
+\usepackage{fancyhdr} 
+\fancyhf{}
+\chead{\courseName}
+\lhead{\thepage}  
+\rhead{\homeworkName}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt} 
+\fancypagestyle{first}{% 
+	\fancyhf{} % clear all header and footer fields 
+	\chead{
+		\small
+		} % except the center 
+	\renewcommand{\headrulewidth}{0pt} 
+	\renewcommand{\footrulewidth}{0pt}
+} 
+\fancypagestyle{second}{% 
+	\fancyhf{} % clear all header and footer fields 
+	\chead{} % except the center 
+	\renewcommand{\headrulewidth}{0pt} 
+	\renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{fancy} 
+	
+\usepackage{xepersian}
+\settextfont[
+Scale=1.2,
+Extension=.ttf, 
+Path=../../common/fonts/,
+BoldFont=*-BOLD
+]{B-NAZANIN}
+\setlatintextfont[Scale=1.1]{Times New Roman}
+%\setdigitfont[Scale=1.4]{Times New Roman}
+\setlength\parindent{0pt}
+
+\newcommand{\courseName}{ارزیابی کارایی سیستم های کامپیوتری}
+\newcommand{\courseSemester}{پاییز ۱۴۰۲}
+\newcommand{\homeworkName}{تمرین دوم}
+\newcommand{\homeworkDue}{موعد: }
+
+\renewcommand{\baselinestretch}{1.5} 
+\pgfplotsset{compat=1.18}
+\begin{document}
+	\graphicspath{{../../common/cover/},{img/}}
+	\pagenumbering{gobble} 
+	\input{../../common/cover/hwcover.tex}
+
+	\pagenumbering{arabic}  
+	\input{Content/2.tex}
+	\newpage
+
+
+	\textbf{مسئله اول}
+	\newline
+	\textit{در یک رستوران فست‌فود دو تا از کارکنان سفارش‌ها را تحویل می‌دهند. نرخ سرویس صف اول دو برابر دیگری است (\lr{$\mu_1 = 2\mu_2$}). با فرض اینکه نرخ ورود به هر دو صف برابر (مقدار \lr{$\lambda$}) باشد، نسبت زمان انتظار در صف برای مشتریان صف اول به صف دوم را محاسبه کنید. (نرخ ورود، نرخ خروج و زمان سرویس از توزیع نمایی است)}
+	\begin{center}
+	    \includegraphics[width=0.15\textwidth]{Content/figure-1.png}
+	\end{center}
+    \bigskip
+    
+    
+    \textbf{مسئله دوم}
+    \newline
+	\textit{در یک رستوران فست‌فود مشتری‌ها با نرخ \lr{$\lambda$} وارد می‌شوند. با احتمال \lr{p} به صف اول می‌پیوندند و با احتمال \lr{1 - p}
+وارد صف بعدی می‌شوند. اگر نرخ سرویس صف اول برابر با \lr{$\mu_1$} و نرخ سرویس صف دوم برابر با \lr{$\mu_2$} باشد، مبانگین زمان انتظار هر مشتری برای دریافت سفارشاش چقدر خواهد بود؟ (نرخ ورود، نرخ خروج و زمان سرویس از توزیع نمایی است)}
+	\begin{center}
+	    \includegraphics[width=0.5\textwidth]{Content/figure-2.png}
+	\end{center}
+    \bigskip
+    
+    
+    \textbf{مسئله سوم}
+    \newline
+	\textit{فرض کنید نرخ ورود، زمان سرویس و نرخ سرویس همه از توزیع نمایی باشد. میانگین زمان پاسخ (\lr{$E[T]$}) برای شبکه
+نشان داده شده چقدر است؟}
+	\begin{center}
+	    \includegraphics[width=0.7\textwidth]{Content/figure-3.png}
+	\end{center}
+    \bigskip
+    
+    
+    \textbf{مسئله چهارم}
+    \newline
+	\textit{با توجه به شکل زیر، میانگین زمان پاسخ را برای کارهای کلاس نوع اول و میانگین زمان پاسخ را برای کارهای کلاس
+نوع دوم محاسبه کنید. نرخ‌های ورود و خروج و زمان پردازش همه از توزیع نمایی هستند.}
+	\begin{center}
+	    \includegraphics[width=0.6\textwidth]{Content/figure-4.png}
+	\end{center}
+    \bigskip
+%	{
+%		\small
+%		\bibliographystyle{ieeetr-fa}
+%		\bibliography{MyReferences}
+%	}
+\end{document}

@@ -1,0 +1,210 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{
+	letterpaper,
+	left=20mm,
+	right=20mm,
+	top=25mm,
+	bottom=30mm,
+}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usepackage{pgfplots}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{subcaption}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{nccmath} %for fleqn
+\makeatletter
+\def\verbatim@font{\linespread{1}\normalfont\ttfamily}
+\makeatother
+\usepackage[breaklinks]{hyperref} 
+\hypersetup{
+	colorlinks   = true,
+	citecolor    = blue
+}
+\hypersetup{linkcolor=blue}
+\usepackage[T1]{fontenc}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\mathchardef\mhyphen="2D
+\newcommand\makeset{\mathop{make\mhyphen set}}
+\newcommand\findset{\mathop{find\mhyphen set}}
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}
+\usepackage{mdframed}
+\usepackage{fancyhdr} 
+\fancyhf{}
+\chead{\courseName}
+\lhead{\thepage}  
+\rhead{\homeworkName}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt} 
+\fancypagestyle{first}{% 
+	\fancyhf{} % clear all header and footer fields 
+	\chead{
+		\small
+		} % except the center 
+	\renewcommand{\headrulewidth}{0pt} 
+	\renewcommand{\footrulewidth}{0pt}
+} 
+\fancypagestyle{second}{% 
+	\fancyhf{} % clear all header and footer fields 
+	\chead{} % except the center 
+	\renewcommand{\headrulewidth}{0pt} 
+	\renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{fancy} 
+	
+\usepackage{xepersian}
+\settextfont[
+Scale=1.2,
+Extension=.ttf, 
+Path=../../common/fonts/,
+BoldFont=*-BOLD
+]{B-NAZANIN}
+\setlatintextfont[Scale=1.1]{Times New Roman}
+%\setdigitfont[Scale=1.4]{Times New Roman}
+\setlength\parindent{0pt}
+
+\newcommand{\courseName}{ارزیابی کارایی سیستم های کامپیوتری}
+\newcommand{\courseSemester}{پاییز ۱۴۰۲}
+\newcommand{\homeworkName}{پروژه اول}
+\newcommand{\homeworkDue}{موعد: }
+
+\renewcommand{\baselinestretch}{1.5} 
+
+\begin{document}
+	\graphicspath{{../../common/cover/},{img/}}
+	\pagenumbering{gobble} 
+	\input{../../common/cover/hwcover.tex}
+
+	\pagenumbering{arabic}  
+	\input{Content/1.tex}
+	\newpage
+
+	\textit{
+	هدف از این تمرین شبیه‌سازی یک سیستم صف \lr{$M/M/1/K$} (یک صف و یک پردازنده) با نرخ سرویس‌دهي \lr{$\mu$} برای پردازنده و ظرفیت محدود \lr{K = 14} برای صف است. خط مشي سرویس‌دهي به صورت \lr{$FCFS$} است. هر فردی که وارد سیستم مي‌شود فقط برای مدت زمان مشخصي تا دریافت سرویس مي‌تواند منتظر بماند، این مدت زمان را با متغیر تصادفي \lr{$\theta$} نشان مي‌دهیم. بنابراین هر
+فرد پس از گذشت مدت زمان \lr{$\theta$}، در صورت عدم دریافت سرویس، صف را ترک خواهد کرد.
+	}
+	\begin{itemize}
+	\item[-]
+زمان انتظار را تا لحظه‌ی شروع سرویس‌دهي در نظر بگیرید. دقت کنید پس از این که یک مشتری شروع به دریافت
+سرویس کند، حتي با رسیدن موعد خود، صف را ترک نخواهد کرد.
+	\item[-]	
+	تابع توزیع زمان انتظار (\lr{$\theta$}) را در دو حالت ثابت و نمایي در نظر بگیرید. سپس با استفاده از روش شبیه‌سازی، برای هر یک
+از حالت‌ها: 
+    \begin{itemize}
+	\item[-]
+نمودار احتمال خارج شدن (\lr{$P_d$}) را نسبت به تغییرات نرخ ورودی \lr{$\lambda$} (در بازه \lr{$[0.1-20]$}
+با میزان پرش‌ \lr{$0.1$})، با میانگین
+زمان انتظار \lr{$\theta$} بدست آورید.
+	\item[-]	
+نمودار احتمال بلوکه شدن (\lr{$P_b$}) را نسبت به تغییرات نرخ ورودی \lr{$\lambda$} (در بازه \lr{$[0.1-20]$}
+با میزان پرش‌ \lr{$0.1$})، با میانگین
+زمان انتظار \lr{$\theta$} بدست آورید.
+	 \item[-]	
+نمودار متوسط تعداد مشتری‌های داخل صف (\lr{$N_c$}) را نسبت به تغییرات نرخ ورودی \lr{$\lambda$} (در بازه \lr{$[0.1-20]$}
+با میزان پرش‌ \lr{$0.1$})، با میانگین
+زمان انتظار \lr{$\theta$} بدست آورید.
+    \end{itemize}
+    \end{itemize}
+    \bigskip
+    
+    \newpage
+    \textbf{روش تحلیلی}
+    \newline
+    \textit{به‌ کمک روابط زیر خطای روش شبیه‌سازی خود را محاسبه کنید.}
+    \begin{itemize}
+	\item[-]
+	احتمال اینکه \lr{$n$} نفر درون صف \lr{$M/M/1/K$} با موعد انتظار باشند:
+	    \begin{center}
+	        \raggedright
+            \includegraphics[width=0.32\textwidth]{Content/2.1.png}
+        \end{center}
+    \item[-]
+	که مقدار تابع \lr{$\varphi_n(\mu)$} با توجه به توزیع زمان انتظار به‌دست مي‌آید. برای حالت موعد دارای توزیع نمایي:
+	    \begin{center}
+	        \raggedright
+            \includegraphics[width=0.3\textwidth]{Content/2.2.png}
+        \end{center}
+    \item[-]
+	برای حالت موعد ثابت:
+	    \begin{center}
+	        \raggedright
+            \includegraphics[width=0.5\textwidth]{Content/2.3.png}
+        \end{center}
+    \item[-]
+	اگر طول صف برابر \lr{$K$} باشد:
+	    \begin{center}
+	        \raggedright
+            \includegraphics[width=0.13\textwidth]{Content/2.4.png}
+        \end{center}
+    \item[-]
+	حال از روابط زیر برای محاسبه مقادیر \lr{$P_b$} و \lr{$P_d$} استفاده کنید:
+	    \begin{center}
+	        \raggedright
+            \includegraphics[width=0.5\textwidth]{Content/2.5.png}
+        \end{center}
+    \item[-]
+	برای محاسبه‌ی \lr{$N_c$} :
+	    \begin{center}
+	        \raggedright
+            \includegraphics[width=0.2\textwidth]{Content/2.6.png}
+        \end{center}
+	\end{itemize}
+	
+	\newpage
+    \textbf{نکات و سوالات متداول}
+    \begin{itemize}
+	\item[-]
+	طول صف نشان‌دهنده‌ی تمامي مشتری‌های حاضر در سیستم مي‌باشد. به طور مثال در این تمرین اگر \lr{$13$} مشتری در صف
+منتظر باشند و یک مشتری در صف در حال سرویس‌دهي باشد، مشتری‌های جدید بلاک خواهند شد. 
+	\item[-]
+برای بدست آوردن یک عدد تصادفي با توزیع نمایي مي‌توان از رابطه زیر کمک گرفت. در این رابطه \lr{$x$} یک عدد تصادفي با
+توزیع یکنواخت \lr{$(Uniform)$} در بازه \lr{$[0,1)$} مي‌باشد. در این رابطه \lr{$\lambda$} همان نرخ ورود مشتری به سیستم است. 
+        \begin{center}
+	        \raggedright
+            \includegraphics[width=0.15\textwidth]{Content/2.7.png}
+        \end{center}
+    \item[-]
+برای کمینه کردن خطای نتایج شبیه‌سازی توصیه مي‌شود تعداد مشتری‌های ورودی به سیستم \lr{$10^7$} یا \lr{$10^8$} در نظر گرفته
+شود. برای هر مشتری سرانجام یکي از سه وضعیت سرویس‌گرفتن، بلاک شدن (وقتي صف پر است) و ترک صف (زمان  رسیدن موعد) اتفاق خواهد افتاد.
+	\item[-]
+ورود مشتری‌ها به سیستم یک فرآیند پواسون با پارامتر \lr{$\lambda$} است. در نتیجه، زمان بین ورود مشتری‌ها مستقل و از توزیع
+نمایي با پارامتر \lr{$\lambda$} پیروی مي‌کند. 
+	\end{itemize}
+	
+	\textbf{تست برنامه}
+	\newline
+    \textit{به منظور بررسي صحت کد ارسالي، موارد زیر را حتما در مورد کد ارسالي رعایت کنید.}
+	\begin{itemize}
+	\item[-]
+در کنار کد خود یک \lr{$Makefile$} قرار دهید. برای کامپایل و اجرای کد شما دستورات زیر استفاده خواهد شد.
+	\begin{center}
+	        \raggedright
+            \includegraphics[width=0.15\textwidth]{Content/2.8.png}
+    \end{center}
+    \item[-]
+    برنامه شبیه‌سازی ارسال‌شده توسط شما باید مقدار پارامتر \lr{$\theta$} و \lr{$\mu$} را به عنوان ورودی بگیرد و مقدار \lr{$P_d$} و \lr{$P_b$} برای حالت‌های
+شبیه‌سازی و تحلیلي فقط برای \lr{$\lambda$} های ۵، ۱۰ و ۱۵ و زمان انتطار ثابت را در یک فایل متني چاپ کند. مقادیر پارامترهای ورودی در فایل \lr{$parameters.conf$} در کنار \lr{$Makefile$} قرار مي‌گیرد. یک فایل نمونه در کنار پروژه قرار گرفته‌است.
+    \end{itemize}
+    
+    \newpage
+    \textbf{نکات پایانی}
+    \begin{itemize}
+	\item[-]
+	شبیه‌سازی مي‌تواند با استفاده از زبان‌های برنامه‌نویسي \lr{$C++$} ،\lr{$C$}، جاوا یا پایتون انجام شود.
+	\item[-]
+	پروژه‌های ارسالي باید شامل کد استفاده‌شده و نتایج گرفته‌شده در قالب فایل \lr{$Excel$} با پارامترهای گفته‌شده در بالا
+باشد.
+    \item[-]
+    قالب فایل‌های \lr{$Excel$} در کل شامل شش نمودار هستند؛ سه نمودار برای موعد ثابت و سه نمودار برای موعد نمایي که هر
+کدام شامل نتایج \lr{$P_d$} و \lr{$P_b$} و \lr{$N_c$} با پارامترهای 3 = \lr{$\theta$} و 1 = \lr{$\mu$} ميباشند. هر کدام از نمودارها شامل دو منحني است که
+مقدار احتمالات به‌دست آمده از روش شبیه‌سازی و تحلیلي به‌ازای نرخ ورودی داده شده در مسأله را نشان مي‌دهد.
+	\end{itemize}
+	
+\end{document}

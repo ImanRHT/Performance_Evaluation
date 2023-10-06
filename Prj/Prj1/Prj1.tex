@@ -121,40 +121,44 @@ BoldFont=*-BOLD
     \begin{itemize}
 	\item[-]
 	احتمال اینکه \lr{$n$} نفر درون صف \lr{$M/M/1/K$} با موعد انتظار باشند:
-	    \begin{center}
-	        \raggedright
-            \includegraphics[width=0.32\textwidth]{Content/2.1.png}
-        \end{center}
+    \lr{\[
+	P_n =
+	\begin{cases}
+	    P_0(\frac{\lambda}{\mu}),
+		&\quad\text{n = 1} \\
+		P_0\lambda^n\frac{\varphi_{n-1}(\mu)}{(n-1)!},
+		&\quad\text{n > 1}
+	\end{cases}
+	\]}
+    
     \item[-]
 	که مقدار تابع \lr{$\varphi_n(\mu)$} با توجه به توزیع زمان انتظار به‌دست مي‌آید. برای حالت موعد دارای توزیع نمایي:
-	    \begin{center}
-	        \raggedright
-            \includegraphics[width=0.3\textwidth]{Content/2.2.png}
-        \end{center}
+    \lr{\[
+	\varphi_n(\mu) = \frac{n!}{\prod_{i=0}^{n} (\mu + i/\bar\theta)}
+	\]}
     \item[-]
 	برای حالت موعد ثابت:
-	    \begin{center}
-	        \raggedright
-            \includegraphics[width=0.5\textwidth]{Content/2.3.png}
-        \end{center}
+    \lr{\[
+	\varphi_n(\mu) = \frac{n!}{\mu^{n+1}}(1 - e^{-\mu\bar\theta}\sum_{i=0}^{n-1} \frac{(\mu\bar\theta)^i}{i!})
+	\]}
     \item[-]
 	اگر طول صف برابر \lr{$K$} باشد:
-	    \begin{center}
-	        \raggedright
-            \includegraphics[width=0.13\textwidth]{Content/2.4.png}
-        \end{center}
+    \lr{\[
+    \sum_{i=0}^{K} P_i = 1
+	\]}
     \item[-]
 	حال از روابط زیر برای محاسبه مقادیر \lr{$P_b$} و \lr{$P_d$} استفاده کنید:
-	    \begin{center}
-	        \raggedright
-            \includegraphics[width=0.5\textwidth]{Content/2.5.png}
-        \end{center}
+    \lr{\[
+    P_b = P_K
+    \]
+    \[
+    P_d + P_b = 1 - \frac{\mu}{\lambda}(\sum_{i=1}^{K} P_i) = 1 - \frac{\mu}{\lambda}(1 - P_0)
+	\]}
     \item[-]
 	برای محاسبه‌ی \lr{$N_c$} :
-	    \begin{center}
-	        \raggedright
-            \includegraphics[width=0.2\textwidth]{Content/2.6.png}
-        \end{center}
+    \lr{\[
+    N_c = \sum_{i=1}^{K} (i.P_i)
+    \]}
 	\end{itemize}
 	
 	\newpage
@@ -166,10 +170,9 @@ BoldFont=*-BOLD
 	\item[-]
 برای بدست آوردن یک عدد تصادفي با توزیع نمایي مي‌توان از رابطه زیر کمک گرفت. در این رابطه \lr{$x$} یک عدد تصادفي با
 توزیع یکنواخت \lr{$(Uniform)$} در بازه \lr{$[0,1)$} مي‌باشد. در این رابطه \lr{$\lambda$} همان نرخ ورود مشتری به سیستم است. 
-        \begin{center}
-	        \raggedright
-            \includegraphics[width=0.15\textwidth]{Content/2.7.png}
-        \end{center}
+    \[
+    y = - \frac{\ln(1 - x)}{\lambda}
+    \]
     \item[-]
 برای کمینه کردن خطای نتایج شبیه‌سازی توصیه مي‌شود تعداد مشتری‌های ورودی به سیستم \lr{$10^7$} یا \lr{$10^8$} در نظر گرفته
 شود. برای هر مشتری سرانجام یکي از سه وضعیت سرویس‌گرفتن، بلاک شدن (وقتي صف پر است) و ترک صف (زمان  رسیدن موعد) اتفاق خواهد افتاد.
@@ -184,10 +187,10 @@ BoldFont=*-BOLD
 	\begin{itemize}
 	\item[-]
 در کنار کد خود یک \lr{$Makefile$} قرار دهید. برای کامپایل و اجرای کد شما دستورات زیر استفاده خواهد شد.
-	\begin{center}
-	        \raggedright
-            \includegraphics[width=0.15\textwidth]{Content/2.8.png}
-    \end{center}
+    \begin{latin}
+		\texttt{make}\\
+		\texttt{make run}
+	\end{latin}
     \item[-]
     برنامه شبیه‌سازی ارسال‌شده توسط شما باید مقدار پارامتر \lr{$\theta$} و \lr{$\mu$} را به عنوان ورودی بگیرد و مقدار \lr{$P_d$} و \lr{$P_b$} برای حالت‌های
 شبیه‌سازی و تحلیلي فقط برای \lr{$\lambda$} های ۵، ۱۰ و ۱۵ و زمان انتطار ثابت را در یک فایل متني چاپ کند. مقادیر پارامترهای ورودی در فایل \lr{$parameters.conf$} در کنار \lr{$Makefile$} قرار مي‌گیرد. یک فایل نمونه در کنار پروژه قرار گرفته‌است.
